@@ -1,0 +1,218 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:sans-serif;
+}
+body{
+    overflow:hidden;
+}
+section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#e3e3e4;
+}
+.card{
+    position:relative;
+    width:500px;
+    height:314px;
+    transform-style:preserve-3d;
+    perspective:500px;
+}
+.card .face{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    box-shadow:0 15px 35px rgba(0,0,0,0.5);
+    border-radius:15px;
+    background:#d80d0d;
+    backdrop-filter:blur(10px);
+    transform-style:preserve-3d;
+    transition:1s;
+    backface-visibility:hidden;
+}
+.card:hover .face.front{
+    transform: rotateY(180deg);
+}
+.card .face.back{
+    transform: rotateY(180deg);
+}
+.card:hover .face.back{
+    transform:rotateY(360deg);
+}
+.card .face.front::before{
+    content: "";
+    position:absolute;
+    bottom:40px;
+    right:60px;
+    width:60px;
+    height:60px;
+    background:#fff;
+    border-radius:50%;
+    opacity:0.5;
+}
+.card .face.front::after{
+    content: "";
+    position:absolute;
+    bottom:40px;
+    right:20px;
+    width:60px;
+    height:60px;
+    background:#fff;
+    border-radius:50%;
+    opacity:0.5;
+}
+.card .face.front .debit{
+    position:absolute;
+    top:30px;
+    left:40px;
+    color:#fff;
+    font-weight:500;
+}
+.card .face.front .bank{
+    position:absolute;
+    top: 30px;
+    right:40px;
+    color:#fff;
+    font-weight:500;
+    font-style:italic;
+    font-size:24px;
+}
+.card .face.front .chip{
+    position:absolute;
+    top:80px;
+    left:20px;
+    max-width:90px;
+    height:70px;
+}
+.card .face.front .number{
+    position:absolute;
+    bottom:130px;
+    left:40px;
+    color:#fff;
+    font-weight: 500;
+    letter-spacing: 6px;
+    text-shadow:0 20px 1px #0005;
+    font-family:sans-serif;  
+    font-size:25px;
+}
+.card .face.front .validfrom{
+    position:absolute;
+    bottom: 80px;
+    left: 40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+    font-weight: 300;
+    line-height: 1rem;
+    text-align: right;
+    font-size: 10px;
+}
+.card .face.front .validfrom span:last-child{
+    margin-left:10px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+.card .face.front .validthru{
+    position:absolute;
+    bottom: 80px;
+    left: 135px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-weight: 300;
+    line-height: 1rem;
+    text-align: right;
+    font-size: 10px;
+}
+.card .face.front .validthru span:last-child{
+    margin-left:10px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+.card .face.front .holder{
+    position:absolute;
+    bottom:40px;
+    left:40px;
+    color:#fff;
+    font-size:12px;
+}
+.card .face.back .web{
+    position:absolute;
+    top: 12px;
+    left:12px;
+    color: #fff;
+    font-size:12px;
+}
+.card .face.back .idc{
+    position:absolute;
+    top: 12px;
+    right:12px;
+    color: #fff;
+    font-size:12px;
+}
+.card .face.back .blackbar{
+    position: absolute;
+    width:100%;
+    top:40px;
+    height:50px;
+    background:#000;
+}
+.card .face.back .ccvtext{
+    position:absolute;
+    top:120px;
+    left:30px;
+}
+.card .face.back .ccvtext h5{
+    color:#fff;
+    font-weight: 400;
+    font-size:12px;
+    letter-spacing: 2px;
+}
+.card .face.back .ccvtext .whitebar{
+    position:relative;
+    width:400px;
+    height:40px;
+    background:#fff;
+    margin-top:5px;
+}
+.card .face.back .ccvtext .ccv{
+    position:relative;
+    width:50px;
+    height:30px;
+    color:#111;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing:3px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    top: -35px;
+    left:335px;
+}
+.card .face.back .ccvtext .bchip{
+    position:absolute;
+    top:80px;
+    left:10px;
+    max-width:85px;
+    height:70px;
+    border-radius:8px;
+}
+.card .face.back .text{
+    position: absolute;
+    bottom:40px;
+    left:140px;
+    right:10px;
+    color:#fff;
+    font-size:10px;
+    line-height:1.4em;
+    font-weight:300;
+}

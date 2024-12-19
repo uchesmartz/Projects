@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container" >
+        <div class="menu">
+            <div class="search">
+                <input  id="input" type="text" placeholder = "enter the name of your city" spellcheck="false">
+                <button id="search">
+                    <img src="search.jpg" alt="">
+                </button>
+            </div>
+            <div class="weather">
+                <img src="rain.png" id="weather-icon">
+                <h1 id="tem">23°c</h1>
+                <h2 id="city">london</h2>
+                <div class="details">
+                    <div class="col">
+                        <img src="humidity.png" alt="">
+                        <div>
+                            <p class="humidity">50%</p>
+                            <p>Humidity</p>
+                        </div>
+                       
+                    </div>
+                    <div class="col">
+                        <img src="sunny.png" alt="">
+                        <div>
+                            <p class="sunny">15 km/h</p>
+                            <p>Windspeed</p>
+                        </div>
+                       
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+         
+        
+        let SearchBtn = document.getElementById("search");
+    
+        SearchBtn.addEventListener('click',()=>{
+            let icon = document.getElementById("weather-icon")
+            let Temp = document.getElementById("tem");
+        let City = document.getElementById("city");
+        let humidity = document.getElementsByClassName(".humidity");
+        let windSpeed = document.getElementsByClassName(".sunny");
+        let SearchBox = document.getElementById("input");
+        
+
+
+        fetch( `http://api.weatherapi.com/v1/current.json?key=822473b4f0d047f48ba152323241009&q=${SearchBox.value}`
+
+
+)  
+.then((res)=>res.json())
+        .then((data)=> {
+            console.log(data)
+            City.textContent = data.location.name;
+            Temp.textContent = data.current.temp_c + "°c";
+            icon.src ="https://" + data.current.condition.icon;
+
+
+
+    
+        })
+        })
+        
+    //     let endpoint = 'https://api.api-ninjas.com/v1/weather?city=London';
+
+
+
+    //     fetch (endpoint,{
+    //     method:'GET',
+    //     headers:{'X-Api-Key':'b8j/6XPk7KnazhOB7qmNGw==2lpCRjYEf66LQBUX', 'Content-type':'application/json'},
+    
+    
+    // })
+    // .then((res) => res.json())
+    // .then((data) => {    
+    //     console.log(data)
+    // })
+    </script>
+</body>
+</html>
